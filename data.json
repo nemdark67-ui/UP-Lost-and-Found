@@ -1,0 +1,22 @@
+{
+  "reports": [
+    {
+      "type": "lost",
+      "itemName": "บัตรนิสิต",
+      "location": "ตึก PKY",
+      "studentId": "65001234",
+      "contact": "081-xxx-xxxx",
+      "specificDetail": "สายคล้องคอสีม่วง มีสติกเกอร์แมวติดที่บัตร",
+      "status": "กำลังตามหา"
+    },
+    {
+      "type": "found",
+      "itemName": "กุญแจรถมอเตอร์ไซค์ Honda",
+      "location": "โรงอาหาร อาคารสงวน",
+      "studentId": "64005678",
+      "contact": "099-xxx-xxxx",
+      "specificDetail": "ป้อมยามประตู 1 (ฝากไว้ในตู้ล็อกเกอร์เบอร์ 3)",
+      "status": "กำลังตามหา"
+    }
+  ]
+}
