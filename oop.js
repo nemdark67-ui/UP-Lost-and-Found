@@ -24,6 +24,12 @@ class AuthManager {
         if (!isEightDigits) {
             throw new Error("กรุณากรอกรหัสนิสิตเป็นตัวเลข 8 หลักเท่านั้น");
         }
+        if (contact.length > 10) {
+            throw new Error("เบอร์โทรต้องมีไม่เกิน 10 หลัก");
+        }
+        if (!/^0\d{9}$/.test(contact)) {
+            throw new Error("เบอร์โทรต้องขึ้นต้นด้วย 0 และเป็นตัวเลข 10 หลัก");
+        }
         this.#currentUser = new User(studentId, contact);
         return this.#currentUser;
     }

@@ -55,8 +55,8 @@
                     <input v-model="loginForm.studentId" type="text" maxlength="8" pattern="\d{8}" required placeholder="เช่น 65001234" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-upPurple outline-none">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">เบอร์ติดต่อ / Line ID</label>
-                    <input v-model="loginForm.contact" type="text" required class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-upPurple outline-none">
+                    <label class="block text-sm font-medium text-slate-700 mb-1">เบอร์ติดต่อ (10 หลัก ขึ้นต้นด้วย 0)</label>
+                    <input v-model="loginForm.contact" type="text" maxlength="10" pattern="0\d{9}" required placeholder="เช่น 0812345678" title="เบอร์โทรต้องขึ้นต้นด้วย 0 และมี 10 หลัก" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-upPurple outline-none">
                 </div>
                 <button type="submit" class="w-full bg-upPurple hover:bg-purple-800 text-white font-bold py-3 rounded-lg mt-4 transition shadow-md">
                     เข้าสู่ระบบ

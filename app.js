@@ -32,12 +32,24 @@ createApp({
             } catch (error) {
                 console.log("Starting with empty data (no data.json found).");
             }
+
+            // ตรวจสอบว่าเคยล็อกอินก่อนที่รีเฟรชหรือไม่ (กด F5 แล้วไม่เด้งออก)
+            const savedLogin = localStorage.getItem('upLogin');
+            if (savedLogin) {
+                try {
+                    const { studentId, contact } = JSON.parse(savedLogin);
+                    currentUser.value = new User(studentId, contact);
+                } catch (e) {
+                    localStorage.removeItem('upLogin');
+                }
+            }
         });
 
         // ระบบ Login / Logout
         const login = () => {
             try {
                 currentUser.value = authManager.login(loginForm.studentId, loginForm.contact);
+                localStorage.setItem('upLogin', JSON.stringify({ studentId: loginForm.studentId, contact: loginForm.contact }));
             } catch (error) {
                 alert(error.message); // แจ้งเตือนถ้ารหัสไม่ครบ 8 หลัก
             }
@@ -46,6 +58,7 @@ createApp({
         const logout = () => {
             authManager.logout();
             currentUser.value = null;
+            localStorage.removeItem('upLogin');
             loginForm.studentId = ''; 
             loginForm.contact = '';
         };
